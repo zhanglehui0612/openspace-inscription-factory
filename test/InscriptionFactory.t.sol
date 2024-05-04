@@ -65,7 +65,7 @@ contract InscriptionFactoryTest is Test {
 
         vm.startPrank(minter1);
         vm.expectRevert(
-            abi.encodeWithSelector(Inscription.ExceedsTotalSupply.selector)
+            abi.encodeWithSelector(InscriptionFactory.ExceedsTotalSupply.selector)
         );
         factory.mintInscription(inscription1);
         vm.stopPrank();
@@ -87,7 +87,7 @@ contract InscriptionFactoryTest is Test {
 
         vm.startPrank(minter1);
         vm.expectRevert(
-            abi.encodeWithSelector(Inscription.PriceNotEnough.selector)
+            abi.encodeWithSelector(InscriptionFactory.PriceNotEnough.selector)
         );
         factory.mintInscription{value: 100000 * 1}(inscription2);
         vm.stopPrank();

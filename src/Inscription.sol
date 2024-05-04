@@ -14,24 +14,17 @@ contract Inscription is ERC20 {
 
     uint256 _maxSupply;
 
-
-    error ExceedsPerMint();
-
-    error ExceedsTotalSupply();
-
-    error PriceNotEnough();
-
     constructor(string memory name, string memory symbol) ERC20(name, symbol) {}
 
     function owner() public view returns (address) {
         return _owner;
     }
 
-    function perMint() public view returns (uint) {
+    function perMint() public view returns (uint256) {
         return _perMint;
     }
 
-    function price() public view returns (uint) {
+    function price() public view returns (uint256) {
         return _price;
     }
 
@@ -39,7 +32,7 @@ contract Inscription is ERC20 {
         return _feeRatio;
     }
     
-    function maxSupply() public view returns (uint) {
+    function maxSupply() public view returns (uint256) {
         return _maxSupply;
     }
 
@@ -63,7 +56,7 @@ contract Inscription is ERC20 {
         _maxSupply = maxSupply;
     }
 
-    function mint(address to, uint256 amount) public payable {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
 }

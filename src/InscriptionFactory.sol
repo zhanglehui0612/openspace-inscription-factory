@@ -11,8 +11,11 @@ contract InscriptionFactory {
 
     address public immutable owner;
 
-    error DuplicatedAddressDeploy();
+    error ExceedsPerMint();
 
+    error ExceedsTotalSupply();
+
+    error PriceNotEnough();
     constructor(address erc20) {
         target = erc20;
         owner = msg.sender;
@@ -44,12 +47,6 @@ contract InscriptionFactory {
 
         return proxy;
     }
-
-    error ExceedsPerMint();
-
-    error ExceedsTotalSupply();
-
-    error PriceNotEnough();
 
     function mintInscription(address tokenAddr) external payable {
         Inscription proxy = Inscription(tokenAddr);
