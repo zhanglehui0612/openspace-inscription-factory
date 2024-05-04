@@ -30,10 +30,11 @@ contract InscriptionFactoryTest is Test {
         address inscription = factory.deployInscription(
             "OpenSpace Inscription",
             "OSI",
-            10000000,
+            0,
             10000,
             10000,
-            10
+            10,
+            10000000
         );
 
         // Get Inscription instance by inscription address
@@ -54,10 +55,11 @@ contract InscriptionFactoryTest is Test {
         address inscription1 = factory.deployInscription(
             "OpenSpace Inscription",
             "OSI",
-            10000000,
+            0,
             100000000,
             10000,
-            10
+            10,
+            10000000
         );
         vm.stopPrank();
 
@@ -74,10 +76,11 @@ contract InscriptionFactoryTest is Test {
         address inscription2 = factory.deployInscription(
             "OpenSpace Inscription",
             "OSI",
-            10000000,
+            0,
             100000,
             1000,
-            10
+            10,
+            10000000
         );
         // Get Inscription instance by inscription address
         vm.stopPrank();
@@ -95,10 +98,11 @@ contract InscriptionFactoryTest is Test {
         address inscription3 = factory.deployInscription(
             "OpenSpace Inscription",
             "OSI",
-            10000000,
+            0,
             100000,
             1000,
-            10
+            10,
+            10000000
         );
         vm.stopPrank();
 

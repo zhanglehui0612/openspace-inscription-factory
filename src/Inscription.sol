@@ -12,6 +12,9 @@ contract Inscription is ERC20 {
 
     uint _feeRatio;
 
+    uint256 _maxSupply;
+
+
     error ExceedsPerMint();
 
     error ExceedsTotalSupply();
@@ -35,6 +38,10 @@ contract Inscription is ERC20 {
     function feeRatio() public view returns (uint) {
         return _feeRatio;
     }
+    
+    function maxSupply() public view returns (uint) {
+        return _maxSupply;
+    }
 
     function initialize(
         address owner,
@@ -43,7 +50,8 @@ contract Inscription is ERC20 {
         uint totalSupply,
         uint perMint,
         uint256 price,
-        uint feeRatio
+        uint feeRatio,
+        uint256 maxSupply
     ) public {
         _owner = owner;
         _name = name;
@@ -52,6 +60,7 @@ contract Inscription is ERC20 {
         _perMint = perMint;
         _price = price;
         _feeRatio = feeRatio;
+        _maxSupply = maxSupply;
     }
 
     function mint(address to, uint256 amount) public payable {
